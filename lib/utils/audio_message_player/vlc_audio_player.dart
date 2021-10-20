@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:dart_vlc/dart_vlc.dart' as vlc;
-import 'package:extended_image/extended_image.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../extension/extension.dart';

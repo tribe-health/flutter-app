@@ -108,6 +108,16 @@ dependencies:
 
 dependency_overrides:
   analyzer: ^2.2.0
+  drift:
+    git:
+      url: https://github.com/simolus3/moor.git
+      ref: 3469bade62388aa1e708598151ca67c3bf4e0b5f
+      path: drift
+  drift_dev:
+    git:
+      url: https://github.com/simolus3/moor.git
+      ref: 3469bade62388aa1e708598151ca67c3bf4e0b5f
+      path: drift_dev
 
 dev_dependencies:
   build_runner:

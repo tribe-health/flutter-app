@@ -43,9 +43,10 @@ class MessageDao extends DatabaseAccessor<MixinDatabase>
 
   late Stream<List<MessageItem>> insertOrReplaceMessageStream = db.eventBus
       .watch<Iterable<String>>(DatabaseEvent.insertOrReplaceMessage)
+      .timeout(const Duration(milliseconds: 20))
       .asyncMap(
     (event) {
-      final ids = event.toList();
+      final ids = event.toSet();
       return _baseMessageItems(
           (message, _, __, ___, ____, _____, ______, _______, ________,
                   _________, __________) =>
@@ -871,8 +872,8 @@ class MessageDao extends DatabaseAccessor<MixinDatabase>
         return db.fuzzySearchMessageByConversationIdAndUserIdAndCategories(
           conversationId,
           userId,
-          keywordFts5,
           categories,
+          keywordFts5,
           (_, __, ___) => Limit(limit, offset),
         );
       }
@@ -890,8 +891,8 @@ class MessageDao extends DatabaseAccessor<MixinDatabase>
       if (categories != null) {
         return db.fuzzySearchMessageByConversationIdAndCategories(
           conversationId,
-          keywordFts5,
           categories,
+          keywordFts5,
           (_, __, ___) => Limit(limit, offset),
         );
       }
@@ -932,8 +933,8 @@ class MessageDao extends DatabaseAccessor<MixinDatabase>
         return db.fuzzySearchMessageCountByConversationIdAndUserIdAndCategories(
           conversationId,
           userId,
-          keywordFts5,
           categories,
+          keywordFts5,
         );
       }
 
@@ -949,8 +950,8 @@ class MessageDao extends DatabaseAccessor<MixinDatabase>
       if (categories != null) {
         return db.fuzzySearchMessageCountByConversationIdAndCategories(
           conversationId,
-          keywordFts5,
           categories,
+          keywordFts5,
         );
       }
 

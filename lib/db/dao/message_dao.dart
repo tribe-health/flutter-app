@@ -43,10 +43,9 @@ class MessageDao extends DatabaseAccessor<MixinDatabase>
 
   late Stream<List<MessageItem>> insertOrReplaceMessageStream = db.eventBus
       .watch<Iterable<String>>(DatabaseEvent.insertOrReplaceMessage)
-      .timeout(const Duration(milliseconds: 20))
       .asyncMap(
     (event) {
-      final ids = event.toSet();
+      final ids = event;
       return _baseMessageItems(
           (message, _, __, ___, ____, _____, ______, _______, ________,
                   _________, __________) =>

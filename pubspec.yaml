@@ -111,12 +111,12 @@ dependency_overrides:
   drift:
     git:
       url: https://github.com/simolus3/moor.git
-      ref: 3469bade62388aa1e708598151ca67c3bf4e0b5f
+      ref: 6bcb0070b0f5116c0bca966b89c1dad7fedffe0d
       path: drift
   drift_dev:
     git:
       url: https://github.com/simolus3/moor.git
-      ref: 3469bade62388aa1e708598151ca67c3bf4e0b5f
+      ref: 6bcb0070b0f5116c0bca966b89c1dad7fedffe0d
       path: drift_dev
 
 dev_dependencies:
